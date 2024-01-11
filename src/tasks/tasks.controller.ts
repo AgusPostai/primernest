@@ -8,8 +8,8 @@ constructor(private tasksService:TasksService){}
 
 
 @Get()
-helloworld() {
-    return this.tasksService.getAllTasks;
+getAllTasks() {
+    return this.tasksService.getAllTasks()
 }
 
 }
