@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Task, TaskStatus } from './task.entity';
-import {v4} from "uuid"
+import { v4 } from 'uuid';
 
 @Injectable()
 export class TasksService {
@@ -18,15 +18,25 @@ export class TasksService {
   }
 
   createTasks(title: string, description: string) {
-const task = {
-    id: v4(),
-    title,
-    description,
-    status: TaskStatus.PENDING
-}
+    const task = {
+      id: v4(),
+      title,
+      description,
+      status: TaskStatus.PENDING,
+    };
 
-    this.tasks.push()
+    this.tasks.push();
   }
-  updateTasks() {}
-  deleteTasks() {}
+
+  deleteTasks(id: string) {
+    this.tasks = this.tasks.filter(task => task.id !== id);
+  }
+
+  getTasksById(id: string): Task{
+    return this.tasks.find(task => task.id === id);
+  }
+
+  updateTasks(id: string, updatedFields: any) {
+    const task = this.getTasksById(id)
+  }
 }
