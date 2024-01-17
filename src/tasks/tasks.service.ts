@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Task, TaskStatus } from './task.entity';
 import { v4 } from 'uuid';
+import { ObjectUnsubscribedError } from 'rxjs';
 
 @Injectable()
 export class TasksService {
@@ -25,7 +26,7 @@ export class TasksService {
       status: TaskStatus.PENDING,
     };
 
-    this.tasks.push();
+  this.tasks.push(task);
   }
 
   deleteTasks(id: string) {
@@ -38,5 +39,10 @@ export class TasksService {
 
   updateTasks(id: string, updatedFields: any) {
     const task = this.getTasksById(id)
+
+    const newTask = Object.assign(task, updatedFields)
+    this.tasks = this.tasks.map((task)=>(task.id === id ? newTask : task))
+  
+  return newTask;
   }
 }
