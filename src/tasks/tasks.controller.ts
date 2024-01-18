@@ -23,5 +23,6 @@ deleteTask(@Param("id") id : string) {
     this.tasksService.deleteTasks(id)
 }
 
+@Put
 
 }
