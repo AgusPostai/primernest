@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Task, TaskStatus } from './task.entity';
 import { v4 } from 'uuid';
 import { ObjectUnsubscribedError } from 'rxjs';
+import { UpdateTaskDto } from './dto/task.dto';
 
 @Injectable()
 export class TasksService {
@@ -37,7 +38,7 @@ export class TasksService {
     return this.tasks.find(task => task.id === id);
   }
 
-  updateTasks(id: string, updatedFields: any) {
+  updateTasks(id: string, updatedFields: UpdateTaskDto) {
     const task = this.getTasksById(id)
 
     const newTask = Object.assign(task, updatedFields)
