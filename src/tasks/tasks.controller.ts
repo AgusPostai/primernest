@@ -3,7 +3,6 @@ import { TasksService } from './tasks.service';
 import {CreateTaskDto} from "./dto/task.dto"
 import { UpdateTaskDto } from './dto/task.dto';
 
-
 @Controller('tasks')
 export class TasksController {
 
@@ -28,5 +27,4 @@ deleteTask(@Param("id") id : string) {
 updateTask(@Param("id") id: string, @Body() updatedFields: UpdateTaskDto){
     return this.tasksService.updateTasks(id, updatedFields)
 }
-
 }

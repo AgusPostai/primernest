@@ -5,7 +5,6 @@ export enum TaskStatus {
 
 }
 
-
 export class Task {
 id:string;
 title: string;
