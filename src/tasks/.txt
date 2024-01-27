@@ -1,0 +1,3 @@
+Hacer un filtro que cuando querramos buscar las tareas nos aparezcan en orden
+si ya las hicimos nos aparezca dwe otro color y si no las hicimos que nos aparezcan con un loguito
+el loguito preguntarle  a aron como hacerlo
